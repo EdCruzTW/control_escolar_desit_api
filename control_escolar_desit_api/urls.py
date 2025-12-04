@@ -3,12 +3,12 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from .views.bootstrap import VersionView
-from app_movil_escolar_api.views import bootstrap
-from app_movil_escolar_api.views import users
-from app_movil_escolar_api.views import alumnos
-from app_movil_escolar_api.views import maestros
-from app_movil_escolar_api.views import auth
-from app_movil_escolar_api.views import materias
+from control_escolar_desit_api.views import bootstrap
+from control_escolar_desit_api.views import users
+from control_escolar_desit_api.views import alumnos
+from control_escolar_desit_api.views import maestros
+from control_escolar_desit_api.views import auth
+from control_escolar_desit_api.views import materias
 # from sistema_escolar_api.views import alumnos
 # from sistema_escolar_api.views import maestros
 

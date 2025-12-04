@@ -1,5 +1,5 @@
 """
-WSGI config for app_movil_escolar_api project.
+WSGI config for control_escolar_desit_api project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'app_movil_escolar_api.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'control_escolar_desit_api.settings')
 
 application = get_wsgi_application()

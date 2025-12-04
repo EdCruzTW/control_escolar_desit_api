@@ -11,7 +11,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '-_&+lsebec(whhw!%n@ww&1j=4-^j_if9x8$q
 
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "0.0.0.0"]
 
 # Agregar el host de Render en producción
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
@@ -28,8 +28,8 @@ INSTALLED_APPS = [
     'django_filters',                 # necesarios para los filtros de DRF
     'rest_framework',
     'rest_framework.authtoken',       # conserva soporte de tokens de DRF
-    'corsheaders',                    # librería CORS actualizada
-    'app_movil_escolar_api',
+    'corsheaders',                    # librer\ía CORS actualizada
+    'control_escolar_desit_api',
 ]
 
 MIDDLEWARE = [
@@ -53,7 +53,7 @@ CORS_ALLOWED_ORIGINS = [
 
 CORS_ALLOW_CREDENTIALS = True
 
-ROOT_URLCONF = 'app_movil_escolar_api.urls'
+ROOT_URLCONF = 'control_escolar_desit_api.urls'
 
 
 
@@ -80,10 +80,10 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'app_movil_escolar_api.wsgi.application'
+WSGI_APPLICATION = 'control_escolar_desit_api.wsgi.application'
 
 # Configuración de base de datos
-# En producción usa DATABASE_URL, en desarrollo usa MySQL local
+# En producción usa DATABASE_URL, en desarrollo usa SQLite
 DATABASE_URL = os.environ.get('DATABASE_URL')
 if DATABASE_URL:
     DATABASES = {
@@ -92,11 +92,8 @@ if DATABASE_URL:
 else:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'OPTIONS': {
-                'read_default_file': os.path.join(BASE_DIR, "my.cnf"),
-                'charset': 'utf8mb4',
-            }
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
 
@@ -121,7 +118,7 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10,
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.SessionAuthentication',
-        'app_movil_escolar_api.models.BearerTokenAuthentication',
+        'control_escolar_desit_api.models.BearerTokenAuthentication',
     ),
     'DEFAULT_FILTER_BACKENDS': (
         'django_filters.rest_framework.DjangoFilterBackend',

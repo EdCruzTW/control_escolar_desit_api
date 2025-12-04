@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.html import format_html
-from app_movil_escolar_api.models import *
+from control_escolar_desit_api.models import *
 
 
 @admin.register(Administradores)

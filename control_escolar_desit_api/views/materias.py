@@ -1,8 +1,8 @@
 from django.db.models import *
 from django.db import transaction
-# from app_movil_escolar_api.serializers import UserSerializer
-from app_movil_escolar_api.serializers import *
-from app_movil_escolar_api.models import *
+# from control_escolar_desit_api.serializers import UserSerializer
+from control_escolar_desit_api.serializers import *
+from control_escolar_desit_api.models import *
 from rest_framework import permissions
 from rest_framework import generics
 from rest_framework import status
