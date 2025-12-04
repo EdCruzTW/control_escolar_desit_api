@@ -3,8 +3,8 @@ services:
     name: control_escolar_desit_api
     env: python
     plan: free
-    buildCommand: pip install -r requirements.txt && python manage.py collectstatic --no-input && python manage.py migrate
-    startCommand: gunicorn app_movil_escolar_api.wsgi:application --bind 0.0.0.0:$PORT
+    buildCommand: pip install --no-cache-dir -r requirements.txt && python manage.py collectstatic --no-input
+    startCommand: gunicorn app_movil_escolar_api.wsgi:application --bind 0.0.0.0:$PORT --workers 1
     envVars:
       - key: SECRET_KEY
         scope: build
